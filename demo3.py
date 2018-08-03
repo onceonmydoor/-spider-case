@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-
+from pyecharts import Bar,Line,Overlap
 
 html_doc = """<html>
     <head>
@@ -66,3 +66,18 @@ soup =BeautifulSoup(html_doc,'lxml')
 #     print(infos)
 div = soup.find('div')
 print(div.contents)
+
+
+attr=['A','B','C','D','E','F']
+v1 = [12,34,124,51,12,32,45,66]
+v2 = [11,4,5,6,8,9,1,2]
+bar =Bar('linr-BAr实例')
+bar.add('bar',attr,v1)
+line =Line()
+line.add('line',attr,v2)
+
+overlap =Overlap()
+overlap.add(bar)
+overlap.add(line)
+
+overlap
